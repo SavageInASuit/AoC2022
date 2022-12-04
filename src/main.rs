@@ -35,6 +35,8 @@ fn read_input(day: u8, test: bool) -> io::Result<String> {
 fn get_puzzle(day: u8) -> Box<dyn Puzzle> {
     match day {
         1 => Box::new(days::one::DayOne),
+        2 => Box::new(days::two::DayTwo),
+        3 => Box::new(days::three::DayThree),
         _ => panic!("Day {} not implemented", day),
     }
 }
