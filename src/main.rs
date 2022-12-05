@@ -38,6 +38,7 @@ fn get_puzzle(day: u8) -> Box<dyn Puzzle> {
         2 => Box::new(days::two::DayTwo),
         3 => Box::new(days::three::DayThree),
         4 => Box::new(days::four::DayFour),
+        5 => Box::new(days::five::DayFive),
         _ => panic!("Day {} not implemented", day),
     }
 }
