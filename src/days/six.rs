@@ -34,7 +34,7 @@ impl Puzzle for DaySix {
     }
 
     fn part2(&self, input: &str) -> String {
-        // Use a sliding window to find end index of the first four unique characters in the input
+        // Use a sliding window to find end index of the first fourteen unique characters in the input
         let mut chars = input.chars();
         let mut unique_chars = chars.by_ref().take(14).collect::<VecDeque<char>>();
         let mut ind = 14;
