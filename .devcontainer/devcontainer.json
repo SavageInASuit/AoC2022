@@ -17,8 +17,9 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"GitHub.copilot",
-        "rust-lang.rust-analyzer",
-        "vscodevim.vim"
+        "rust-lang.rust-analyzer"
+		// This needs to be installed locally, not in the container
+        // "vscodevim.vim"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
