@@ -1,6 +1,6 @@
 pub struct DaySeven;
 
-use std::{path::{PathBuf, Component}, collections::HashMap};
+use std::collections::HashMap;
 
 use crate::Puzzle;
 
@@ -28,11 +28,10 @@ impl Puzzle for DaySeven {
         let limit = 100_000;
         let mut sizes: HashMap<String, u32> = HashMap::new();
         for line in input.lines() {
-            if state == States::List && !line.starts_with("$") {
+            if state == States::List && !line.starts_with('$') {
                 // another file or dir to enumerate
-                let parts: Vec<&str> = line.split(" ").collect();
+                let parts: Vec<&str> = line.split(' ').collect();
                 if parts[0] != "dir" {
-                    // update_dirs(&mut sizes, &dir, parts[0].parse().expect("file size not an integer!"));
                     let size = parts[0].parse().expect("file size not an integer!");
                     for ancestor in ancestors(&mut dir).iter() {
                         let cur_size = sizes.get(&ancestor.clone()[..]);
@@ -42,8 +41,8 @@ impl Puzzle for DaySeven {
                         };
                     }
                 }
-            } else if line.starts_with("$") {
-                let parts: Vec<&str> = line.split(" ").collect();
+            } else if line.starts_with('$') {
+                let parts: Vec<&str> = line.split(' ').collect();
                 match parts[1] {
                     "cd" => {
                         state = States::Cmd;
@@ -65,14 +64,12 @@ impl Puzzle for DaySeven {
     fn part2(&self, input: &str) -> String {
         let mut state = States::Cmd;
         let mut dir: Vec<&str> = vec![];
-        let limit = 100_000;
         let mut sizes: HashMap<String, u32> = HashMap::new();
         for line in input.lines() {
-            if state == States::List && !line.starts_with("$") {
+            if state == States::List && !line.starts_with('$') {
                 // another file or dir to enumerate
-                let parts: Vec<&str> = line.split(" ").collect();
+                let parts: Vec<&str> = line.split(' ').collect();
                 if parts[0] != "dir" {
-                    // update_dirs(&mut sizes, &dir, parts[0].parse().expect("file size not an integer!"));
                     let size = parts[0].parse().expect("file size not an integer!");
                     for ancestor in ancestors(&mut dir).iter() {
                         let cur_size = sizes.get(&ancestor.clone()[..]);
@@ -82,8 +79,8 @@ impl Puzzle for DaySeven {
                         };
                     }
                 }
-            } else if line.starts_with("$") {
-                let parts: Vec<&str> = line.split(" ").collect();
+            } else if line.starts_with('$') {
+                let parts: Vec<&str> = line.split(' ').collect();
                 match parts[1] {
                     "cd" => {
                         state = States::Cmd;
@@ -104,7 +101,7 @@ impl Puzzle for DaySeven {
         let to_free = needed - (hd_size - used);
         // find the smallest dir that is larger than to_free
         let mut smallest = u32::MAX;
-        for (dir, size) in sizes.iter() {
+        for (_, size) in sizes.iter() {
             if size > &to_free && size < &smallest {
                 smallest = *size;
             }
