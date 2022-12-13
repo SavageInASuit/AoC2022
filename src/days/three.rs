@@ -4,14 +4,11 @@ use crate::Puzzle;
 
 fn score_char(c: &char) -> u32 {
     let code = *c as u32;
-    let score;
-    // char is a-z - score is 1 to 26
     if code >= 0x61 {
-        score = code - 0x60;
+        code - 0x60
     } else { // char is A-Z - 27 to 52 
-        score = code - 0x26;
+        code - 0x26
     }
-    score
 }
 
 impl Puzzle for DayThree {

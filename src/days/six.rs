@@ -10,12 +10,12 @@ where
 {
     let mut map: HashMap<&T, bool> = HashMap::new();
     for t in v {
-        if let Some(_) = map.get(&t) {
+        if map.get(&t).is_some() {
             return false;
         }
         map.insert(t, true);
     }
-    return true;
+    true
 }
 
 impl Puzzle for DaySix {

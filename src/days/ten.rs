@@ -54,7 +54,6 @@ impl Puzzle for DayTen {
         let mut screen: String = "".to_owned();
         for line in input.lines() {
             let cmd = Cmd::from(line.to_owned());
-            let check = cycle == 41;
             match cmd {
                 Cmd::Addx(val) => {
                     let pos = (cycle - 1) % 40;
